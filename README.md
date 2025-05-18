@@ -1,6 +1,18 @@
 # TO-DO--LIST-APPLICATION-PROJECTS
 A simple To-Do List app built with HTML, CSS, JavaScript, and PHP. Users can add, delete, and mark tasks as complete. It uses localStorage for front-end persistence and a PHP backend to store tasks. A great project for learning DOM manipulation, event handling, and basic PHP integration.
 
+# App or Website Overview 
+
+![image](https://github.com/user-attachments/assets/181fbd2b-4d5d-4d73-8d1a-1601ebc3d793)
+
+# SignUp or SignIn Page 
+![image](https://github.com/user-attachments/assets/5bd357ee-a3b6-47c0-8588-8268e48e9ff7)
+
+# Database Connection
+![image](https://github.com/user-attachments/assets/5cf05718-2eaa-43dc-bb99-25811dbcfbe4)
+![image](https://github.com/user-attachments/assets/2c860d37-4ee6-475f-ba56-b2caab277c27)
+
+
 
 
 # Description
@@ -51,3 +63,5 @@ Delete tasks by clicking the "Delete" button next to them.
 Mark tasks as complete by clicking on the task text.
 
 All tasks will persist between sessions using localStorage and PHP.
+
+
