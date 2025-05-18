@@ -32,7 +32,7 @@ localStorage: To persist tasks on the front-end.
 Installation
 Clone this repository to your local machine:
 
-git clone https://github.com/your-username/to-do-list-app.git
+git clone https: https://github.com/riponalmamun/TO-DO--LIST-APPLICATION-PROJECTS
 
 # Navigate to the project directory: cd to-do-list-app
 
