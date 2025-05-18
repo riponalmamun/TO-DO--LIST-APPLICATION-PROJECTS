@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - To-Do App</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general text styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ecf0f1; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px; /* Space for the header */
+        }
+
+        /* Header styling */
+        header {
+            background-color: #2c3e50; /* Dark blue-gray background */
+            color: white;
+            padding: 10px 20px; /* Reduce the padding to bring it closer to the top */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: -60px; /* Remove any extra top margin */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust the size of the logo image */
+            height: auto;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Navigation styling */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12; /* Gold hover effect */
+        }
+
+        /* Main section styling */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Pricing section */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Pricing Card */
+        .pricing-card {
+            background-color: #cbc5e4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Plan title and price */
+        .pricing-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card .price span {
+            font-size: 18px;
+            color: #999;
+        }
+
+        /* Plan Features */
+        .pricing-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        /* Button Style */
+        .pricing-card .order-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .pricing-card .order-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Color schemes for the different plans */
+        .standard {
+            border-left: 5px solid #27ae60;
+        }
+
+        .business {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .premium {
+            border-left: 5px solid #3498db;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 196px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" aria-label="To-Do App logo">
+            <img src="logo.png" alt="To-Do App Logo" />
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="home.html" aria-label="Home page">Home</a>
+            <a href="about.html" aria-label="About page">About</a>
+            <a href="product.html" aria-label="Product page">Product</a>
+            <a href="pricing.html" aria-label="Pricing page">Pricing</a>
+            <a href="enterprise.html" aria-label="Enterprise page">Enterprise</a>
+            <a href="contact.html" aria-label="Contact page">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Pricing</h1>
+        <p>This is the pricing page. Choose the best plan for your needs, and start organizing your tasks efficiently. We offer three flexible plans: Standard, Business, and Premium.</p>
+
+        <!-- Pricing Section -->
+        <div class="pricing-container">
+            <!-- Standard Plan -->
+            <div class="pricing-card standard">
+                <h2>Standard</h2>
+                <div class="price">$10.00 <span>/month</span></div>
+                <ul>
+                    <li>50GB Disk Space</li>
+                    <li>50 Email Accounts</li>
+                    <li>50GB Bandwidth</li>
+                    <li>10 Subdomains</li>
+                    <li>15 Domains</li>
+                </ul>
+                <a href="#" class="order-button">Order Now</a>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="pricing-card business">
+                <h2>Business</h2>
+                <div class="price">$20.00 <span>/month</span></div>
+                <ul>
+                    <li>60GB Disk Space</li>
+                    <li>60 Email Accounts</li>
+                    <li>60GB Bandwidth</li>
+                    <li>15 Subdomains</li>
+                    <li>20 Domains</li>
+                </ul>
+                <a href="#" class="order-button">Order Now</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card premium">
+                <h2>Premium</h2>
+                <div class="price">$30.00 <span>/month</span></div>
+                <ul>
+                    <li>70GB Disk Space</li>
+                    <li>70 Email Accounts</li>
+                    <li>70GB Bandwidth</li>
+                    <li>20 Subdomains</li>
+                    <li>25 Domains</li>
+                </ul>
+                <a href="#" class="order-button">Order Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; To-Do App || EWU DATA SCIENCE TEAM [1] </p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Planner</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .week, .weeks, .months {
+            margin-bottom: 40px;
+        }
+
+        .days {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .day, .week-item, .month-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            width: 13%;
+            /* Adjusting width to fit more items horizontally */
+        }
+
+        .day ul, .week-item ul, .month-item ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="checkbox"]:checked {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        /* Color coding for different time blocks */
+        #tuesday { background-color: #f9e6ff; }
+        #wednesday { background-color: #e6f9ff; }
+        #thursday { background-color: #f0f9e6; }
+        #friday { background-color: #fff0f6; }
+        #saturday { background-color: #f4b7ff; }
+        #sunday { background-color: #b7f1e6; }
+
+        /* Layout for weeks and months */
+        .weeks {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .months {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Specific color for weeks and months */
+        .week-item {
+            background-color: #e0f7fa;
+        }
+
+        .month-item {
+            background-color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List Planner</h1>
+
+        <!-- 7 Days Section -->
+        <div class="week">
+            <h2>7 Days</h2>
+            <div class="days">
+                <div class="day" id="monday">
+                    <h3>Mon (16/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Work</li>
+                    </ul>
+                </div>
+                <div class="day" id="tuesday">
+                    <h3>Tue (17/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Doctors</li>
+                        <li><input type="checkbox"> Band Practice</li>
+                    </ul>
+                </div>
+                <div class="day" id="wednesday">
+                    <h3>Wed (18/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Work</li>
+                        <li><input type="checkbox"> MoT Leeds</li>
+                    </ul>
+                </div>
+                <div class="day" id="thursday">
+                    <h3>Thu (19/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Work</li>
+                        <li><input type="checkbox"> Train down to London</li>
+                    </ul>
+                </div>
+                <div class="day" id="friday">
+                    <h3>Fri (20/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> React Advanced</li>
+                    </ul>
+                </div>
+                <div class="day" id="saturday">
+                    <h3>Sat (21/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Compile list of apps to check</li>
+                    </ul>
+                </div>
+                <div class="day" id="sunday">
+                    <h3>Sun (22/10)</h3>
+                    <ul>
+                        <li><input type="checkbox"> Try out apps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 Weeks Section -->
+        <div class="weeks">
+            <h2>6 Weeks</h2>
+            <div class="week-item">
+                <h3>Week 1 (16/10)</h3>
+                <ul>
+                    <li><input type="checkbox"> Doctor's Appointment</li>
+                </ul>
+            </div>
+            <div class="week-item">
+                <h3>Week 2 (23/10)</h3>
+                <ul>
+                    <li><input type="checkbox"> Mentoring Call</li>
+                    <li><input type="checkbox"> Get sauna booked</li>
+                </ul>
+            </div>
+            <div class="week-item">
+                <h3>Week 3 (30/10)</h3>
+                <ul>
+                    <li><input type="checkbox"> Halloween</li>
+                    <li><input type="checkbox"> Mentoring Call</li>
+                </ul>
+            </div>
+            <div class="week-item">
+                <h3>Week 4 (06/11)</h3>
+                <ul>
+                    <li><input type="checkbox"> Renew VPN</li>
+                    <li><input type="checkbox"> Research airlines to New Zealand</li>
+                    <li><input type="checkbox"> Research flights to Dunedin</li>
+                </ul>
+            </div>
+            <div class="week-item">
+                <h3>Week 5 (13/11)</h3>
+                <ul>
+                    <li><input type="checkbox"> Skateboarding</li>
+                    <li><input type="checkbox"> Research hotels</li>
+                </ul>
+            </div>
+            <div class="week-item">
+                <h3>Week 6 (20/11)</h3>
+                <ul>
+                    <li><input type="checkbox"> Fly to Helsinki</li>
+                    <li><input type="checkbox"> Purchase flights to New Zealand</li>
+                    <li><input type="checkbox"> Book Hotel</li>
+                    <li><input type="checkbox"> Book Southern Lights tour</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6 Months Section -->
+        <div class="months">
+            <h2>6 Months</h2>
+            <div class="month-item">
+                <h3>Month 1 (Oct)</h3>
+                <ul>
+                    <li><input type="checkbox"> Find new Todo app</li>
+                </ul>
+            </div>
+            <div class="month-item">
+                <h3>Month 2 (Nov)</h3>
+                <ul>
+                    <li><input type="checkbox"> Renew VPN</li>
+                </ul>
+            </div>
+            <div class="month-item">
+                <h3>Month 3 (Dec)</h3>
+                <ul>
+                    <li><input type="checkbox"> Dad's Birthday</li>
+                    <li><input type="checkbox"> Crimbo</li>
+                </ul>
+            </div>
+            <div class="month-item">
+                <h3>Month 4 (Jan)</h3>
+                <ul>
+                    <li><input type="checkbox"> Turn 36</li>
+                    <li><input type="checkbox"> Buy prepaid card for VPN</li>
+                </ul>
+            </div>
+            <div class="month-item">
+                <h3>Month 5 (Feb)</h3>
+                <ul>
+                    <li><input type="checkbox"> Valentine's Day</li>
+                </ul>
+            </div>
+            <div class="month-item">
+                <h3>Month 6 (Mar)</h3>
+                <ul>
+                    <li><input type="checkbox"> Mum's Birthday</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling checkboxes interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    if (checkbox.checked) {
+                        checkbox.parentElement.style.textDecoration = "line-through";
+                    } else {
+                        checkbox.parentElement.style.textDecoration = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

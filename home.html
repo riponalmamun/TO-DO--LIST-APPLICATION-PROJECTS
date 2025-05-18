@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - To-Do App</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general text styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ecf0f1; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px; /* Space for the header */
+        }
+
+        /* Header styling */
+        header {
+            background-color: #2c3e50; /* Dark blue-gray background */
+            color: white;
+            padding: 10px 20px; /* Reduce the padding to bring it closer to the top */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: -60px; /* Remove any extra top margin */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust the size of the logo image */
+            height: auto;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Navigation styling */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12; /* Gold hover effect */
+        }
+
+        /* Main section styling */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        h3, h4 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" aria-label="To-Do App logo">
+            <img src="logo.png" alt="To-Do App Logo" />
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="home.html" aria-label="Home page">Home</a>
+            <a href="about.html" aria-label="About page">About</a>
+            <a href="product.html" aria-label="Product page">Product</a>
+            <a href="pricing.html" aria-label="Pricing page">Pricing</a>
+            <a href="enterprise.html" aria-label="Enterprise page">Enterprise</a>
+            <a href="contact.html" aria-label="Contact page">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to the To-Do App!</h1>
+        
+        <h2>Organize Your Life, One Task at a Time!</h2>
+        <p>Welcome to To-Do App, the ultimate tool designed to help you stay organized, manage your tasks, and boost your productivity. Whether you're a student, professional, or anyone looking to keep track of daily activities, our app simplifies task management for people of all kinds.</p>
+
+        <h3>Key Features:</h3>
+
+        <h4>1. Simple and Intuitive Interface</h4>
+        <p>The app's interface is easy to navigate, allowing you to quickly add, edit, and prioritize tasks without a steep learning curve.</p>
+
+        <h4>2. Task Categories and Priorities</h4>
+        <p>Organize your to-dos into categories like Work, Personal, Shopping, or any other custom labels. You can also prioritize tasks to focus on what matters most.</p>
+
+        <h4>3. Due Dates and Reminders</h4>
+        <p>Never forget an important task again! You can set due dates, reminders, and even recurring tasks to ensure you're always on top of your responsibilities.</p>
+
+        <h4>4. Cross-Platform Sync</h4>
+        <p>Your to-dos sync across devices, so you can access them anytime, anywhere. Whether you’re on your phone, tablet, or computer, your tasks are always at your fingertips.</p>
+
+        <h4>5. Progress Tracking</h4>
+        <p>Stay motivated by marking off completed tasks and seeing your progress. The satisfaction of checking off items will keep you moving forward!</p>
+
+        <h4>6. Collaborate with Others</h4>
+        <p>You can share task lists with friends, family, or colleagues, making it perfect for group projects or shared responsibilities.</p>
+
+        <h3>How It Works:</h3>
+        <ul>
+            <li><strong>Sign up and get started:</strong> Create a free account and start adding your tasks right away.</li>
+            <li><strong>Organize your tasks:</strong> Group tasks by categories, assign priorities, set deadlines, and add any necessary details.</li>
+            <li><strong>Stay on track:</strong> Check your to-do list every day and mark tasks as complete once done. Get reminders when a task is nearing its deadline.</li>
+        </ul>
+
+        <h3>Why Choose To-Do App?</h3>
+        <p>We believe that productivity should be simple and accessible for everyone. Whether you're trying to keep track of personal goals, work projects, or household chores, To-Do App offers the flexibility and features you need to stay organized. Our goal is to make task management stress-free, so you can focus on achieving your goals without worrying about forgetting things.</p>
+
+        <h3>Start Today!</h3>
+        <p>Join the thousands of satisfied users who have transformed their daily routines using To-Do App. Start organizing your tasks and improving your productivity today!</p>
+    </main>
+
+    <footer>
+        <p>&copy;EWU DATA SCIENCE TEAM [1]</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

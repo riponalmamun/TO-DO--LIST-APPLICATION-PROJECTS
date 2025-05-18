@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Chatbot</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        /* Welcome Section Styling */
+        #welcome-section {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .text {
+            display: inline-block;
+        }
+
+        /* Copilot Chat Button Styling */
+        #copilot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #copilot-button img {
+            margin-right: 8px;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Copilot Chat Box Styling */
+        #copilot-chat {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Start as hidden */
+            flex-direction: column;
+        }
+
+        #copilot-header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        #copilot-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            width: fit-content;
+        }
+
+        .user {
+            background-color: #d1f7d1;
+            align-self: flex-end;
+        }
+
+        .bot {
+            background-color: #e1e1e1;
+            align-self: flex-start;
+        }
+
+        #copilot-input {
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+            width: 100%;
+        }
+
+        /* Copilot chat hidden state */
+        .form-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Section with the Typed.js animation -->
+    <div id="welcome-section">
+        <span class="text"></span>
+    </div>
+
+    <!-- Copilot Chat Button -->
+    <div id="copilot-button" onclick="toggleCopilot()">
+        <img src="https://img.icons8.com/ios/50/000000/robot.png" alt="bot-icon" />
+        Need Help?
+    </div>
+
+    <!-- Copilot Chat -->
+    <div id="copilot-chat" class="form-hidden">
+        <div id="copilot-header">Copilot Assistant</div>
+        <div id="copilot-messages">
+            <div class="message bot">Hi! I'm your task assistant. How can I help you today?</div>
+        </div>
+        <input type="text" id="copilot-input" placeholder="Type your question..." onkeypress="handleInput(event)">
+    </div>
+
+    <script>
+        // Initialize Typed.js for the live typing effect
+        var typed = new Typed(".text", {
+            strings: ["Welcome to TO Do APPLICATION"], // Add your text here
+            typeSpeed: 100,   // Speed of typing
+            backSpeed: 100,   // Speed of erasing
+            backDelay: 1000,  // Delay before starting to erase
+            loop: true        // Set to true for continuous looping
+        });
+
+        // Toggle the visibility of the copilot chat
+        function toggleCopilot() {
+            const chatBox = document.getElementById("copilot-chat");
+            chatBox.style.display = (chatBox.style.display === "none" || chatBox.style.display === "") ? "flex" : "none"; // Toggle visibility
+        }
+
+        // Handle the user input and display the chatbot's response
+        function handleInput(event) {
+            if (event.key === "Enter") {
+                const input = document.getElementById("copilot-input");
+                const messages = document.getElementById("copilot-messages");
+                const userText = input.value.trim();
+
+                if (userText !== "") {
+                    // User message
+                    const userMessage = document.createElement("div");
+                    userMessage.className = "message user";
+                    userMessage.textContent = userText;
+                    messages.appendChild(userMessage);
+
+                    // Bot response (replace this with real backend or dynamic responses)
+                    const botMessage = document.createElement("div");
+                    botMessage.className = "message bot";
+                    botMessage.textContent = generateBotResponse(userText);
+                    messages.appendChild(botMessage);
+
+                    // Clear the input field
+                    input.value = "";
+
+                    // Scroll to the bottom of the chat
+                    messages.scrollTop = messages.scrollHeight;
+                }
+            }
+        }
+
+        // Generate a simple bot response based on user input
+        function generateBotResponse(input) {
+            const lowerInput = input.toLowerCase();
+
+            if (lowerInput.includes("hello") || lowerInput.includes("hi")) {
+                return "Hello! How can I assist you today?";
+            } else if (lowerInput.includes("how are you")) {
+                return "I'm doing great, thank you for asking!";
+            } else if (lowerInput.includes("help")) {
+                return "I am here to help you. Ask me anything!";
+            } else if (lowerInput.includes("features")) {
+                return "You can ask me about your tasks, upcoming events, and more!";
+            } else {
+                return "Sorry, I didn't understand that. Can you please ask something else?";
+            }
+        }
+    </script>
+
+</body>
+</html>

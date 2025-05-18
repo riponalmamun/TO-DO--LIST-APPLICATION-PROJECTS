@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Register - To-Do App</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    /* Basic reset */
+    * {  
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url("1.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 110vh;
+      background: rgba(39, 39, 39, 0.4);
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+      z-index: 100;
+    }
+
+    .nav-logo p {
+      color: white;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .nav-menu ul {
+      display: flex;
+    }
+
+    .nav-menu ul li {
+      list-style-type: none;
+    }
+
+    .nav-menu ul li .link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      padding-bottom: 15px;
+      margin: 0 25px;
+    }
+
+    .link:hover, .active {
+      border-bottom: 2px solid #fff;
+    }
+
+    .nav-button .btn {
+      width: 130px;
+      height: 40px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #registerBtn {
+      margin-left: 15px;
+    }
+
+    .btn.white-btn {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn.btn.white-btn:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-menu-btn {
+      display: none;
+    }
+
+    .form-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 512px;
+      height: 420px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .login-container {
+      position: absolute;
+      left: 4px;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      transition: .5s ease-in-out;
+    }
+
+    .register-container {
+      position: absolute;
+      right: -520px;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      transition: .5s ease-in-out;
+    }
+
+    header {
+      color: #fff;
+      font-size: 30px;
+      text-align: center;
+      padding: 10px 0 30px 0;
+    }
+
+    .two-forms {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-field {
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      height: 50px;
+      width: 100%;
+      padding: 0 10px 0 45px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    .input-field:hover, .input-field:focus {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    ::-webkit-input-placeholder {
+      color: #fff;
+    }
+
+    .input-box i {
+      position: relative;
+      top: -35px;
+      left: 17px;
+      color: #fff;
+    }
+
+    .submit {
+      font-size: 15px;
+      font-weight: 500;
+      color: black;
+      height: 45px;
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: .3s ease-in-out;
+    }
+
+    .submit:hover {
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .two-col {
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+      font-size: small;
+      margin-top: 10px;
+    }
+
+    .two-col .one {
+      display: flex;
+      gap: 5px;
+    }
+
+    .two label a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .two label a:hover {
+      text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 786px) {
+      .nav-button {
+        display: none;
+      }
+
+      .nav-menu.responsive {
+        top: 100px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        background-color: #2c3e50;
+        z-index: 101;
+      }
+
+      .nav-menu ul li .link {
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        font-size: 20px;
+      }
+
+      .form-box {
+        width: 400px;
+        height: auto;
+      }
+
+      .login-container, .register-container {
+        left: 0px;
+        right: 0px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="nav">
+      <div class="nav-logo">
+        <p>To-Do App</p>
+      </div>
+      <div class="nav-menu">
+        <ul>
+          <li><a href="home.html" class="link">Home</a></li>
+          <li><a href="blog.html" class="link">Blog</a></li>
+          <li><a href="services.html" class="link">Services</a></li>
+          <li><a href="about.html" class="link">About</a></li>
+        </ul>
+      </div>
+      <div class="nav-button">
+        <button class="btn white-btn" id="registerBtn" onclick="register()">Sign Up</button>
+        <button class="btn" id="loginBtn" onclick="login()">Sign In</button>
+      </div>
+      <div class="nav-menu-btn" onclick="myMenuFunction()">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+    
+    <div class="form-box">
+      <!-- Login Form -->
+      <div class="login-container">
+        <header>Sign In</header>
+        <form action="login.php" method="POST">
+          <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" name="email" placeholder="Username or Email" required />
+          </div>
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" class="input-field" name="password" placeholder="Password" required />
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="rememberMe" />
+              <label for="rememberMe">Remember Me</label>
+            </div>
+            <label><a href="#">Forgot Password?</a></label>
+          </div>
+          <input type="submit" class="submit" value="Sign In" />
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div class="register-container">
+        <header>Create an Account</header>
+        <form action="register.php" method="POST">
+          <div class="two-forms">
+            <div class="input-box">
+              <i class="bx bx-user"></i>
+              <input type="text" class="input-field" name="firstname" placeholder="Firstname" required />
+            </div>
+            <div class="input-box">
+              <i class="bx bx-user"></i>
+              <input type="text" class="input-field" name="lastname" placeholder="Lastname" required />
+            </div>
+          </div>
+          <div class="input-box">
+            <i class="bx bx-mail-send"></i>
+            <input type="email" class="input-field" name="email" placeholder="Email" required />
+          </div>
+          <div class="input-box">
+            <i class="bx bx-lock"></i>
+            <input type="password" class="input-field" name="password" placeholder="Password" required />
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="terms" name="terms" required />
+              <label for="terms">I accept the <a href="#">Terms & Conditions</a></label>
+            </div>
+          </div>
+          <input type="submit" class="submit" value="Sign Up" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; EWU DATA SCIENCE TEAM [1]</p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    function myMenuFunction() {
+      var x = document.querySelector('.nav-menu');
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+
+    function login() {
+      document.querySelector('.login-container').style.left = '4px';
+      document.querySelector('.register-container').style.right = '-520px';
+    }
+
+    function register() {
+      document.querySelector('.login-container').style.left = '-520px';
+      document.querySelector('.register-container').style.right = '4px';
+    }
+  </script>
+</body>
+</html>

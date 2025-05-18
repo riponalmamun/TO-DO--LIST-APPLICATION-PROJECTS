@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Section</title>
+  <style>
+    body {
+        background: linear-gradient(to right, #f1fdf8, #d1f9e2);
+    
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    section.faq-section {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .faq-item {
+      background-color: #ffffff;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 1rem;
+    }
+
+    .faq-question span {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    .discord {
+  margin: 2rem auto 0;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: #7289da;
+  border: 1px solid #333;
+  display: block; /* changed from inline-block */
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;
+}
+
+
+    .discord:hover {
+      background-color: #8ec7d8;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="faq-section">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">How is Twos different than notes? <span>+</span></div>
+      <div class="faq-answer">With Twos, you are capturing things (individual pieces of information) 
+        which are faster, more flexible, and easier to organize.<br> <br> Your things in Twos can be notes, to-dos, 
+        reminders, ideas, events & more.With notes, you are writing static text. <br> <br>Text cannot be easily 
+        converted into different types of things which leads to using many different apps.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is Twos free? <span>+</span></div>
+      <div class="faq-answer">Yes, Twos is free to use on mobile, web, and desktop.<br> <br>
+
+        Some features, like tags and highlight colors, cost $2 or 200 coins one-time (mobile app only).<br> <br>
+        
+        All features/functionality are free to use on web and desktop apps.<br> <br>
+        
+        By subscribing to Twos Plus, you get all existing and future upgrades on mobile.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How safe is Twos? <span>+</span></div>
+      <div class="faq-answer">Everything you create in Twos is encrypted at rest and in transit.<br> <br>
+
+        Data is stored in secure, encrypted servers by well-known, trusted companies and protected with token authentication.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What are PALs? <span>+</span></div>
+      <div class="faq-answer">PALs stand for 'Personal Active Lists' which are Twos' AI features that improve the user experience.<br> <br>
+
+        Currently, PALs cover 31+ AI 'smart suggestions' that generate links and functionality by simply writing things down.<br> <br>
+        
+        For example, when you write movie titles, PALs will generate links to IMDB and streaming services.<br> <br>
+        
+        Simply write things down in Twos and see how PALs can help you get things done.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What integrations are currently available? <span>+</span></div>
+      <div class="faq-answer">Twos currently integrates with all calendar providers (Google, Apple, Outlook, etc.). Twos also integrates with texts, emails, WhatsApp, and Siri to quickly add things to your daily list.<br> <br>
+
+        Visit side menu > settings > integrations to see and set up your Twos integrations.<br> <br>
+        
+        Twos PALs (via smart suggestions) currently integrates with Amazon, Walmart, Google Maps, Apple Music, Doordash, and many more.<br> <br>
+        
+        You can see these integrations by visiting side menu > settings > PALs</div>
+    </div>
+
+    <a class="discord" href="#">Join our Discord community</a>
+  </section>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+  
+
+</body>
+</html>

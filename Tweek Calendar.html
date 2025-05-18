@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweek Calendar - Weekly Planner & To-Do List</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and general text styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px; /* Space for the header */
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: #2c3e50;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Calendar and To-Do List container */
+        .content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Calendar styling */
+        .calendar {
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .calendar .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 10px;
+        }
+
+        .calendar .day {
+            text-align: center;
+            font-size: 16px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .calendar .day:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .calendar .day.selected {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        /* To-Do List Styling */
+        .todo-list {
+            width: 35%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .todo-list h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .todo-list ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        /* To-Do List Styling */
+        .todo-list ul li {
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f4f6f9;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px; /* Add space between task text and buttons */
+        }
+
+        .todo-list ul li.completed {
+            background-color: #e0e0e0;
+            text-decoration: line-through;
+            color: #bbb;
+        }
+
+        .todo-list button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 48%; /* Set a fixed width for buttons */
+        }
+
+        .todo-list button:hover {
+            background-color: #2980b9;
+        }
+
+        .todo-list input[type="text"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 451px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .calendar, .todo-list {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Tweek Calendar</h1>
+            <p>Your Minimal Weekly Planner & To-Do List App</p>
+        </header>
+
+        <!-- Main Content Section -->
+        <div class="content">
+            <!-- Calendar Section -->
+            <div class="calendar">
+                <h2>Week Overview</h2>
+                <div class="days">
+                    <div class="day">Mon</div>
+                    <div class="day">Tue</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thu</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                    <div class="day">Sun</div>
+                </div>
+            </div>
+
+            <!-- To-Do List Section -->
+            <div class="todo-list">
+                <h2>Your To-Do List</h2>
+                <ul id="task-list">
+                    <!-- Task list items will be dynamically added here -->
+                </ul>
+                <input type="text" id="task-input" placeholder="Add a new task..." />
+                <button onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; EWU DATA SCIENCE TEAM [1]</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // JavaScript to manage the tasks
+        const taskList = document.getElementById('task-list');
+        const taskInput = document.getElementById('task-input');
+
+        // Function to add a new task
+        function addTask() {
+            if (taskInput.value.trim() === '') {
+                alert('Please enter a task!');
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${taskInput.value} 
+                <button onclick="toggleComplete(event)">Complete</button>
+                <button onclick="deleteTask(event)">Delete</button>
+            `;
+            taskList.appendChild(li);
+            taskInput.value = '';
+        }
+
+        // Function to toggle task completion
+        function toggleComplete(event) {
+            const task = event.target.parentElement;
+            task.classList.toggle('completed');
+        }
+
+        // Function to delete a task
+        function deleteTask(event) {
+            const task = event.target.parentElement;
+            task.remove();
+        }
+
+        // Add event listeners to each day in the calendar
+        const days = document.querySelectorAll('.calendar .day');
+
+        days.forEach(day => {
+            day.addEventListener('click', function() {
+                // Remove 'selected' class from all days
+                days.forEach(d => d.classList.remove('selected'));
+                
+                // Add 'selected' class to the clicked day
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
